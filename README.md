@@ -4,12 +4,12 @@ An interactive portfolio project for learning probability distributions and math
 
 ## Features
 
-- Distribution Explorer for Bernoulli, Binomial, Poisson, Exponential, Gamma, Beta, and Normal distributions.
+- Distribution Explorer for Bernoulli, Binomial, Poisson, Exponential, Gamma, Beta, Normal, and Empirical distributions.
 - Central Limit Theorem simulator with original distribution and sample-mean histogram.
 - Confidence interval simulator showing sample mean, interval, and whether it covers the true mean.
-- Beta-binomial Bayesian updating with prior/posterior curves.
+- Bayesian updating with Beta-Binomial, Gamma-Poisson, and Normal-Normal conjugate models.
 - Statistical Inference Lab with step-by-step MLE, Fisher Information, CRLB, MVUE, likelihood ratio testing, and small-vs-large-sample estimation.
-- Exam Mode with quick decision rules and revision prompts.
+- Quick Reference with fast decision rules and revision prompts.
 
 ## Tech Stack
 
@@ -17,7 +17,7 @@ An interactive portfolio project for learning probability distributions and math
 - TypeScript
 - Tailwind CSS
 - Recharts
-- KaTeX via `react-katex`
+- KaTeX for LaTeX rendering
 
 ## Install and Run
 

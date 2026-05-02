@@ -83,12 +83,22 @@ export function DistributionExplorer() {
             kind={distribution.kind === "discrete" ? "bar" : "area"}
             height={330}
           />
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-[1.5rem] border border-ink/10 bg-white/75 p-4">
+          <div className="grid gap-4">
+            <div className="min-w-0 overflow-hidden rounded-[1.5rem] border border-ink/10 bg-white/75 p-4">
               <p className="mb-3 text-xs font-black uppercase tracking-[0.18em] text-clay">Formula</p>
-              <MathBlock math={distribution.formula} />
+              <MathBlock math={distribution.formula} compact />
+              <div className="mt-4 grid gap-3">
+                {distribution.formulaDetails.map((detail) => (
+                  <div key={detail.label} className="min-w-0 overflow-hidden rounded-2xl bg-sage/40 p-3">
+                    <p className="mb-2 text-xs font-black uppercase tracking-[0.16em] text-moss">{detail.label}</p>
+                    <div className="min-w-0">
+                      <MathBlock math={detail.math} compact />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="rounded-[1.5rem] border border-ink/10 bg-white/75 p-4">
+            <div className="min-w-0 rounded-[1.5rem] border border-ink/10 bg-white/75 p-4">
               <p className="mb-3 text-xs font-black uppercase tracking-[0.18em] text-clay">Moments</p>
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-2xl bg-sage/60 p-4">
@@ -103,6 +113,28 @@ export function DistributionExplorer() {
               <p className="mt-4 leading-7 text-ink/75">{distribution.explanation(params)}</p>
             </div>
           </div>
+          <details className="rounded-[1.5rem] border border-ink/10 bg-white/75 p-4">
+            <summary className="cursor-pointer font-display text-2xl font-semibold text-ink">
+              Distribution comparison methods
+            </summary>
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              <div className="rounded-2xl bg-sage/40 p-4">
+                <p className="mb-2 text-sm font-black uppercase tracking-[0.16em] text-clay">Kolmogorov-Smirnov</p>
+                <MathBlock math="D=\\sup_x |F(x)-G(x)|" />
+                <p className="mt-3 text-sm leading-6 text-ink/70">Looks at the largest vertical gap between two CDFs.</p>
+              </div>
+              <div className="rounded-2xl bg-sage/40 p-4">
+                <p className="mb-2 text-sm font-black uppercase tracking-[0.16em] text-clay">Absolute area</p>
+                <MathBlock math="d_1(f,g)=\\int_a^b |f(x)-g(x)|\\,dx" />
+                <p className="mt-3 text-sm leading-6 text-ink/70">Measures total absolute density difference across an interval.</p>
+              </div>
+              <div className="rounded-2xl bg-sage/40 p-4">
+                <p className="mb-2 text-sm font-black uppercase tracking-[0.16em] text-clay">Squared area</p>
+                <MathBlock math="d_2(f,g)=\\int_a^b (f(x)-g(x))^2\\,dx" />
+                <p className="mt-3 text-sm leading-6 text-ink/70">Punishes large local differences more strongly because they are squared.</p>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </Panel>

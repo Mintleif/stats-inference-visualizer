@@ -4,6 +4,8 @@ import type { InferenceExample } from "@/lib/types";
 import { MathBlock } from "./MathBlock";
 
 export function StepAccordion({ example, defaultOpen = false }: { example: InferenceExample; defaultOpen?: boolean }) {
+  const resultIsMath = /[\\_^=]/.test(example.result);
+
   return (
     <details className="group rounded-[1.5rem] border border-ink/10 bg-white/75 p-4 shadow-sm" open={defaultOpen}>
       <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
@@ -29,7 +31,13 @@ export function StepAccordion({ example, defaultOpen = false }: { example: Infer
         ))}
         <div className="rounded-2xl border border-gold/40 bg-gold/15 p-4">
           <p className="mb-2 text-xs font-black uppercase tracking-[0.18em] text-clay">Final answer</p>
-          <MathBlock math={example.result} />
+          {resultIsMath ? (
+            <MathBlock math={example.result} />
+          ) : (
+            <p className="rounded-2xl border border-ink/10 bg-cream/80 p-4 font-semibold leading-7 text-ink">
+              {example.result}
+            </p>
+          )}
         </div>
       </div>
     </details>

@@ -12,7 +12,8 @@ export type DistributionKey =
   | "exponential"
   | "gamma"
   | "beta"
-  | "normal";
+  | "normal"
+  | "empirical";
 
 export type DistributionKind = "discrete" | "continuous";
 
@@ -30,6 +31,7 @@ export type DistributionConfig = {
   name: string;
   kind: DistributionKind;
   formula: string;
+  formulaDetails: { label: string; math: string }[];
   parameters: ParameterConfig[];
   mean: (params: Record<string, number>) => number;
   variance: (params: Record<string, number>) => number;

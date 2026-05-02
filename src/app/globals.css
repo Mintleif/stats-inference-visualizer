@@ -29,12 +29,17 @@ body {
 }
 
 .math-scroll {
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
 }
 
 .katex-display {
   margin: 0;
+}
+
+.math-scroll .katex {
+  font-size: 0.95em;
 }
 
 @keyframes rise-in {

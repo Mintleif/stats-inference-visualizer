@@ -23,6 +23,7 @@ export function CLTSimulator() {
   const params = useMemo(() => defaultParams(base), [base]);
 
   const simulated = useMemo(() => {
+    void runId;
     const means = Array.from({ length: simulations }, () => {
       const sample = Array.from({ length: sampleSize }, () => distribution.sample(params));
       return mean(sample);

@@ -5,7 +5,7 @@ import { Panel } from "./Panel";
 
 export function ExamMode() {
   return (
-    <Panel title="Exam Mode" eyebrow="Fast recall cards">
+    <Panel title="Quick Reference" eyebrow="Fast recall cards">
       <div className="mb-5 rounded-[1.5rem] border border-clay/30 bg-clay/10 p-5">
         <p className="font-display text-2xl font-semibold text-ink">When you freeze, reduce the problem to three questions.</p>
         <p className="mt-2 leading-7 text-ink/75">

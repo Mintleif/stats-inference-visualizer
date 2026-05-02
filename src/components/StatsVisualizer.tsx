@@ -14,7 +14,7 @@ const sections = [
   { id: "ci", label: "Confidence Intervals", component: <ConfidenceIntervalVisualizer /> },
   { id: "bayes", label: "Bayesian Updating", component: <BayesianUpdating /> },
   { id: "lab", label: "Inference Lab", component: <InferenceLab /> },
-  { id: "exam", label: "Exam Mode", component: <ExamMode /> }
+  { id: "exam", label: "Quick Reference", component: <ExamMode /> }
 ];
 
 export function StatsVisualizer() {
@@ -35,7 +35,7 @@ export function StatsVisualizer() {
                 Statistics Intuition + Inference Visualizer
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-ink/75">
-                A hands-on revision studio for probability distributions, simulation, confidence intervals, Bayesian updating, and exam-ready mathematical statistics derivations.
+                An interactive probability and inference workshop for distributions, simulation, confidence intervals, Bayesian updating, and mathematical statistics derivations.
               </p>
             </div>
             <div className="rounded-[1.5rem] bg-ink p-5 text-cream">

@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import {
   crlbExamples,
   fisherExamples,
-  lrtExample,
+  lrtExamples,
   mleExamples,
   mvueExamples,
   smallLargeExamples
@@ -52,7 +52,7 @@ const labSections: LabSection[] = [
     id: "lrt",
     title: "E. Likelihood Ratio Test",
     intro: "For simple-vs-simple tests, reject where the observed data support H1 much more than H0.",
-    examples: [lrtExample]
+    examples: lrtExamples
   },
   {
     id: "small-large",
@@ -119,9 +119,6 @@ export function InferenceLab() {
               <span className="mt-1 block text-sm opacity-75">{item.intro}</span>
             </button>
           ))}
-          <div className="rounded-[1.5rem] border border-gold/40 bg-gold/15 p-4 text-sm leading-6 text-ink/75">
-            Exam trick: always name the parameter, name the statistic, and say which theorem or bound you are using. That alone often earns method marks.
-          </div>
         </aside>
 
         <div className="space-y-5">
